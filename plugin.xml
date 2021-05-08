@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="cordova-plugin-cnvitals" version="1.0.0">
+  <name>CareNowVitals SDK</name>
+  <description></description>
+  <license>MIT</license>
+  <keywords></keywords>
+  <asset src="www/plugin.js" target="js/plugin.js"/>
+  <js-module src="www/plugin.js" name="CNVitals">
+    <clobbers target="CNVitals" />
+  </js-module>
+
+  <!-- android -->
+  <platform name="android">
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="CNVitals">
+        <param name="android-package" value="com.carenow.cnvitalssdk.CNVitals" />
+        <param name="onload" value="true" />
+      </feature>
+    </config-file>
+
+    <!-- android gradle dependency -->
+    <framework src="com.github.bumptech.glide:glide:4.12.0" />
+    <framework src="com.google.android.material:material:1.1.0"/>
+    <framework src="com.google.code.gson:gson:2.8.6"/>
+    <framework src="com.jjoe64:graphview:4.2.2"/>
+    <framework src="net.danlew:android.joda:2.10.9.1"/>
+    <framework src="com.afollestad.material-dialogs:core:0.9.6.0"/>
+    <framework src="androidx.appcompat:appcompat:1.2.0" />
+
+    <config-file target="AndroidManifest.xml" parent="/*">
+      <uses-permission android:name="android.permission.CAMERA" />
+      <uses-feature android:name="android.hardware.camera" />
+      <uses-feature android:name="android.hardware.camera.flash" />
+      <uses-permission android:name="android.permission.FLASHLIGHT" />
+      <uses-permission android:name="android.permission.WAKE_LOCK" />
+    </config-file>
+    <!-- android library dependency -->
+    
+    <!-- <source-file src="src/android/lib/CNVitalsAndroid.aar" target-dir="libs" framework="true"/> -->
+    <!-- java and resource files dependencies -->
+    <source-file src="src/android/com/carenow/cnvitalssdk/CNVitals.java" target-dir="src/com/carenow/cnvitalssdk/" />
+  </platform>
+
+  <!-- ios -->
+  <platform name="ios">
+    <config-file target="config.xml" parent="/*">
+      <feature name="CNVitals">
+        <param name="ios-package" value="CDVHeartBeat" />
+      </feature>
+    </config-file>
+
+    <resource-file src="src/ios/Assets/icon_tbd.png" target="Resources/icon_tbd.png"/>
+    <resource-file src="src/ios/Assets/icon_tick.png" target="Resources/icon_tick.png"/>
+    <resource-file src="src/ios/Assets/icon_cross.png" target="Resources/icon_cross.png"/>
+    <resource-file src="src/ios/Assets/heart.png" target="Resources/heart.png"/>
+    <resource-file src="src/ios/Assets/scan.png" target="Resources/scan.png"/>
+    <resource-file src="src/ios/Assets/music_disable.png" target="Resources/music_disable.png"/>
+    <resource-file src="src/ios/Assets/music.png" target="Resources/music.png"/>
+    <resource-file src="src/ios/Assets/music.mp3" target="Resources/music.mp3"/>
+    <resource-file src="src/ios/Assets/white_heart.png" target="Resources/white_heart.png"/>
+    <resource-file src="src/ios/Assets/spin.gif" target="Resources/spin.gif"/>
+    <resource-file src="src/ios/Assets/bodyvitals.storyboard" target="Resources/bodyvitals.storyboard"/>
+    <header-file src="src/ios/CDVHeartBeat.h" target-dir="CNVitalsPlugin"/>
+    <source-file src="src/ios/CDVHeartBeat.m" target-dir="CNVitalsPlugin"/>
+
+    <!-- ios framework dependency -->
+    <!-- <framework src="src/ios/Frameworks/CNVitalsiOS.framework" custom="true"/> -->
+
+    <framework src="AVFoundation.framework" />
+    <framework src="CoreVideo.framework" />
+    <framework src="CoreGraphics.framework" />
+    <config-file target="*-Info.plist" parent="NSCameraUsageDescription">
+      <string>Measure your heartbeat by using the camera and flash.</string>
+    </config-file>
+  </platform>
+</plugin>

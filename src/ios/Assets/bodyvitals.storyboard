@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="jSN-F6-Q4K">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Body Vitals View Controller-->
+        <scene sceneID="nZR-qd-fY9">
+            <objects>
+                <viewController storyboardIdentifier="BodyVitalsViewController" id="jSN-F6-Q4K" customClass="BodyVitalsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8oD-ke-cGW"/>
+                        <viewControllerLayoutGuide type="bottom" id="tZu-uw-hgi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3Bh-pO-6uY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3if-kg-Wlo" userLabel="RemoteView">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ebq-ja-6iU">
+                                <rect key="frame" x="0.0" y="44" width="414" height="0.0"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" systemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="3if-kg-Wlo" firstAttribute="top" secondItem="8oD-ke-cGW" secondAttribute="bottom" id="0r4-Df-8Yo"/>
+                            <constraint firstItem="ebq-ja-6iU" firstAttribute="leading" secondItem="3Bh-pO-6uY" secondAttribute="leading" id="OWm-Gg-PVO"/>
+                            <constraint firstAttribute="trailing" secondItem="ebq-ja-6iU" secondAttribute="trailing" id="eiL-ob-cD1"/>
+                            <constraint firstItem="tZu-uw-hgi" firstAttribute="top" secondItem="3if-kg-Wlo" secondAttribute="bottom" id="elL-tm-a5C"/>
+                            <constraint firstAttribute="trailing" secondItem="3if-kg-Wlo" secondAttribute="trailing" id="nQ3-6a-K8r"/>
+                            <constraint firstItem="ebq-ja-6iU" firstAttribute="top" secondItem="8oD-ke-cGW" secondAttribute="bottom" id="sqw-S7-DJO"/>
+                            <constraint firstItem="3if-kg-Wlo" firstAttribute="leading" secondItem="3Bh-pO-6uY" secondAttribute="leading" id="t5D-Kv-lXA"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JfB-JL-3y4" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="321.73913043478262" y="366.96428571428572"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="darkTextColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

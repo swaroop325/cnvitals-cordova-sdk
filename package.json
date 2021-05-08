@@ -1,0 +1,37 @@
+{
+  "name": "cordova-plugin-cnvitals",
+  "author": "Swaroop A.S",
+  "cordova_name": "CNVITALS-SDK",
+  "license": "MIT",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/swaroop325/cnvitals-cordova-sdk"
+  },
+  "issue": "https://github.com/swaroop325/cnvitals-cordova-sdk/issues",
+  "cordova": {
+    "id": "cordova-plugin-cnvitals",
+    "platforms": [
+      "android",
+      "ios",
+      "windows"
+    ]
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova",
+    "android",
+    "ios",
+    "windows",
+    "ionic",
+    "camera",
+    "vitals",
+    "body-vitals",
+    "carenow",
+    "sdk"
+  ],
+  "scripts": {
+    "version": "sync-cordova-xml package.json plugin.xml --output plugin.xml && git add plugin.xml"
+  },
+  "description": "carenowvitals sdk for detecting vitals from phone camera"
+}
