@@ -51,7 +51,12 @@ onDeviceReady: function() {
   {
       api_key : "sample_key",
       scan_token : "sample_token",
-      user_id : "sample_user_id"
+      employee_id: 'sample_token',
+      language: 'en',
+      color_code: '#c82633',
+      measured_height: '180',
+      measured_weight: '60',
+      posture: 'posture'   
   } 
 });
 ````

@@ -3,7 +3,7 @@
   "author": "Swaroop A.S",
   "cordova_name": "CNVITALS-SDK",
   "license": "MIT",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/swaroop325/cnvitals-cordova-sdk"

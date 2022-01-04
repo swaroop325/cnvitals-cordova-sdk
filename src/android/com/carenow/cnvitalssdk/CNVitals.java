@@ -33,12 +33,17 @@ public class CNVitals extends CordovaPlugin {
             r.setKeepCallback(true);
             callbackContext.sendPluginResult(r);
 
-            Intent i = new Intent(context, Calibration.class);
-            i.putExtra("api_key", args.getJSONObject(0).getString("api_key"));
-            i.putExtra("scan_token", args.getJSONObject(0).getString("scan_token"));
-            i.putExtra("user_id", args.getJSONObject(0).getString("user_id"));
+            Intent intent = new Intent(context, Calibration.class);
+            intent.putExtra("api_key", args.getJSONObject(0).getString("api_key"));
+            intent.putExtra("scan_token", args.getJSONObject(0).getString("scan_token"));
+            intent.putExtra("employee_id", args.getJSONObject(0).getString("employee_id"));
+            intent.putExtra("language", args.getJSONObject(0).getString("language"));
+            intent.putExtra("color_code", args.getJSONObject(0).getString("color_code"));
+            intent.putExtra("measured_height", args.getJSONObject(0).getString("measured_height"));
+            intent.putExtra("measured_weight", args.getJSONObject(0).getString("measured_weight"));
+            intent.putExtra("posture", args.getJSONObject(0).getString("posture"));
             cordova.setActivityResultCallback (this);
-            cordova.startActivityForResult(this, i, 90);
+            cordova.startActivityForResult(this, intent, 90);
             return true;
         }
         return false;
@@ -66,6 +71,8 @@ public class CNVitals extends CordovaPlugin {
                 item.put("ecgdata", ecgData);
                 item.put("ppgdata", ppgData);
                 item.put("heartdata", heartData);
+                item.put("heartDataArray", heartDataArray);
+                item.put("apiResponse",apiResponse);
             } catch (JSONException e) {
 
             }

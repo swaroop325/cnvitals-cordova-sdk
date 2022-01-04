@@ -23,8 +23,12 @@
                                                              options:NSJSONWritingPrettyPrinted error:&error];
     NSString *api_key = [command argumentAtIndex:0][@"api_key"];
     NSString *scan_token = [command argumentAtIndex:0][@"scan_token"];
-    NSString *user_id = [command argumentAtIndex:0][@"user_id"];
-    NSDictionary *postDict = @{@"api_key":api_key, @"scan_token":scan_token,@"user_id":user_id };
+    NSString *color_code = [command argumentAtIndex:0][@"color_code"];
+    NSString *employee_id = [command argumentAtIndex:0][@"employee_id"];
+    NSString *measured_height= [command argumentAtIndex:0][@"measured_height"];
+    NSString *measured_weight= [command argumentAtIndex:0][@"measured_weight"];
+    NSString *posture =[command argumentAtIndex:0][@"posture"];
+    NSDictionary *postDict = @{@"api_key":api_key, @"scan_token":scan_token,@"employee_id":employee_id,@"measured_height": measured_height, @"measured_weight":measured_weight,@"posture": posture };
     
     dispatch_async(dispatch_get_main_queue(), ^{
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"bodyvitals" bundle:nil];
@@ -55,6 +59,9 @@
 - (void)heartRateUpdate:(int)bpm{
     self.bpms = bpm;
 }
+- (void)apiResponseUpdate:(NSString *)apiResponse{
+    self.apiResponse = apiResponse;
+}
 
 - (void)Spo2Update:(int)so2{
     self.so2 = so2;
@@ -72,6 +79,10 @@
     self.ecgdata = ecgData;
 }
 
+- (void)setHeartDataArray:(NSString *)heartDataArray{
+    self.heartdataArray = heartDataArray;
+}
+
 - (void)heartRateEnd{
     self.detecting = false;
     
@@ -85,7 +96,8 @@
     [dict setValue:myRespirationRate forKey:@"breath"];
     [dict setValue:self.ppgdata forKey:@"ppgdata"];
     [dict setValue:self.ecgdata forKey:@"ecgdata"];
-    
+    [dict setValue:self.heartdataArray forKey:@"heartDataArray"];
+    [dict setValue:self.apiResponse forKey:@"apiResponse"];
     NSError *error;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dict
                                                        options:NSJSONWritingPrettyPrinted error:&error];
@@ -106,11 +118,7 @@
 
 - (void)heartRateMeasurementFailed:(NSString *)message{
     self.detecting = false;
-    CDVPluginResult* result = [CDVPluginResult
-                               resultWithStatus:CDVCommandStatus_ERROR
-                               messageAsString: message];
-    [[self commandDelegate] sendPluginResult:result callbackId:_mainCallbackId];
+    __callbackResult([@"" stringByAppendingString:message]);
     [self.viewController dismissViewControllerAnimated:YES completion:nil];
 }
-
 @end
